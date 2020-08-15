@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.posted-by {
+  font-family: "Lucida Console", Courier, monospace;
+  color: rgb(77, 77, 190);
+  text-shadow: 0px 0px 2px rgb(123, 134, 233);
+}
