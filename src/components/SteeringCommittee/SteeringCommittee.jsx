@@ -1,21 +1,13 @@
 import React from "react";
 
-const archive20 = {
-  "2020-01-08":
-    "https://drive.google.com/file/d/1TCNKsTyW8BknVfawfYzeJ0AsOAy68HtM/view?usp=sharing",
-  "2020-02-05":
-    "https://drive.google.com/file/d/1W4frFqNbdJiAJ4dIBsafSfMg26A15UDv/view?usp=sharing",
-  "2020-02-26":
-    "https://drive.google.com/file/d/15PfBdOWz5jz9OUt3VLcBtDrhyz-D_qcl/view?usp=sharing",
-};
-
 const SteeringCommittee = () => {
   return (
     <div className="container">
-      <h2 className="text-center">{"Steering Committee (Monthly)"}</h2>
       <br />
       <div className="row">
-        <div className="col col-md-8">
+        <div className="col col-lg-8">
+          <h2 className="text-center">{"Steering Committee (Monthly)"}</h2>
+          <br />
           <p className="text-center">
             If you are a member of the Brentwood Neighborhood Association, you
             are always welcome to attend the Steering Committee's regular
@@ -41,7 +33,7 @@ const SteeringCommittee = () => {
             post link to a PDF minutes here.
           </p>
         </div>
-        <div className="col col-md-3">
+        <div className="col col-sm-3">
           <b>Archive</b>
           <br />
           <br />
@@ -69,6 +61,9 @@ const SteeringCommittee = () => {
               >
                 <div className="card-body">
                   <p className="text-center">
+                    <a href="https://drive.google.com/drive/folders/1mtp7_tgRYFsU-kU47dIzBDJETRb4IglF">
+                      <b>Google Drive</b>
+                    </a>
                     <br />
                     <a
                       href="https://drive.google.com/file/d/1TCNKsTyW8BknVfawfYzeJ0AsOAy68HtM/view?usp=sharing"
@@ -263,7 +258,7 @@ const SteeringCommittee = () => {
                   <p className="text-center">
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-01-03 BNA SC.pdf"
+                      href="https://drive.google.com/file/d/1LmqotmbSkDIrS2IvR8q0INjaodAR0B0H/view?usp=sharing"
                       download
                     >
                       2018-01-03
@@ -271,87 +266,87 @@ const SteeringCommittee = () => {
 
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-02-07 BNA SC Revised.pdf"
+                      href="https://drive.google.com/file/d/10Xf6zCN6BKQpu-GyA2rzWGUQB6XM_u9R/view?usp=sharing"
                       download
                     >
                       2018-02-07
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-02-21 BNA GM Revised.pdf"
+                      href="https://drive.google.com/file/d/12EyLxbpdBoQb_ELCU6bJp3j1xCnDaFe5/view?usp=sharing"
                       download
                     >
                       2018-02-21
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-03-07 BNA SC.pdf"
+                      href="https://drive.google.com/file/d/1H6oIqnF0blV2omhobDMfD6Uu-KjrdM8c/view?usp=sharing"
                       download
                     >
                       2018-03-07
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-04-04 BNA SC Revised.pdf"
+                      href="https://drive.google.com/file/d/18wTVEAXySLL2uTWPjM2y7aXQ75r7HFro/view?usp=sharing"
                       download
                     >
                       2018-04-04
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-05-02 BNA SC Revised.pdf"
+                      href="https://drive.google.com/file/d/1dHLe-4IQYq-2q-j8R6gSPGYze8gu2Msh/view?usp=sharing"
                       download
                     >
                       2018-05-02
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-06-06 BNA SC Revised.pdf"
+                      href="https://drive.google.com/file/d/1GodY2aa6LlX_EFretHWW0NkcGSKvQK6a/view?usp=sharing"
                       download
                     >
                       2018-06-06
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-07-11 BNA SC Revised.pdf"
+                      href="https://drive.google.com/file/d/1zVqUkq4kRfKpU4T5SYXjZM_0Qh6Q3B8N/view?usp=sharing"
                       download
                     >
                       2018-07-11
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-08-01 BNA SC.pdf"
+                      href="https://drive.google.com/file/d/12o1H9iRZIQSg8xnzxrYg6Z6NYShTvVi3/view?usp=sharing"
                       download
                     >
                       2018-08-01
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-09-05 BNA SC.pdf"
+                      href="https://drive.google.com/file/d/1RalAj9b0MyIQ17-CvlDYtV8-aPLg2hX7/view?usp=sharing"
                       download
                     >
                       2018-09-05
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-10-03 BNA SC Revised.pdf"
+                      href="https://drive.google.com/file/d/1VlAUEFBGKczlgETiYU4ocfjC9S1y4_nx/view?usp=sharing"
                       download
                     >
-                      2019-08-07
+                      2019-10-03
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-11-07 BNA SC.pdf"
+                      href="https://drive.google.com/file/d/1-V192ifVXigSlymQczMq0J8zhLIgu34m/view?usp=sharing"
                       download
                     >
-                      2019-08-07
+                      2019-11-07
                     </a>
                     <br />
                     <a
-                      href="/assets/BNA-Archive/2018/2018-12-05 BNA SC.pdf"
+                      href="https://drive.google.com/file/d/1Z7E-lqtTeDSjPl83idW7TxqhM7-yXIYa/view?usp=sharing"
                       download
                     >
-                      2019-08-07
+                      2019-12-05
                     </a>
                     <br />
                   </p>

@@ -3,11 +3,20 @@ import "./App.css";
 import HomePage from "./components/Homepage/HomePage";
 import { withRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import SupportPage from "./components/Supportpage/SupportPage";
+import SupportPage from "./components/SupportContact/SupportPage";
 import SteeringCommittee from "./components/SteeringCommittee/SteeringCommittee";
 import NewsArchivePage from "./components/NewsLetter/NewsArchivePage";
 import NewsLetterPage from "./components/NewsLetter/NewsLetterPage";
 import SteeringArchive from "./components/SteeringCommittee/SteeringArchive";
+import DeadlinesAds from "./components/NewsLetter/DeadlinesAds";
+import ContactUs from "./components/SupportContact/ContactUs";
+import OurNeighborhood from "./components/About/OurNeighborhood";
+import History from "./components/About/History";
+import Officers from "./components/About/Officers";
+import Bylaws from "./components/About/Bylaws";
+import CodeNext from "./components/Info/CodeNext";
+import Floodplain from "./components/Info/Floodplain";
+import Resources from "./components/Info/Resources";
 
 class App extends Component {
   render() {
@@ -21,14 +30,25 @@ class App extends Component {
             <Fragment>
               <Switch>
                 {/* <Route exact path="/about" component={About} /> */}
-                <Route path="/supportpage" component={SupportPage} />
                 <Route
                   path="/steeringcommittee"
                   component={SteeringCommittee}
                 />
+                <Route path="/history" component={History} />
                 <Route path="/steeringarchive" component={SteeringArchive} />
                 <Route path="/recentnews" component={NewsLetterPage} />
+                <Route path="/deadline-ads" component={DeadlinesAds} />
                 <Route path="/newsarchive" component={NewsArchivePage} />
+                <Route path="/ourneighborhood" component={OurNeighborhood} />
+                <Route path="/officers" component={Officers} />
+                <Route path="/bylaws" component={Bylaws} />
+                <Route path="/codenext" component={CodeNext} />
+                <Route path="/floodplain" component={Floodplain} />
+                <Route path="/resources" component={Resources} />
+
+                <Route path="/supportpage" component={SupportPage} />
+                <Route path="/contactus" component={ContactUs} />
+
                 {/* <Route component={"NotFound"} /> */}
               </Switch>
             </Fragment>

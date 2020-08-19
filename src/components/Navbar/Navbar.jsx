@@ -37,7 +37,7 @@ const Navbar = () => {
             </Link>
           </li>
 
-          <li classNamear="nav-item">
+          <li className="nav-item">
             <Link className="nav-link" as={NavLink} to={"/steeringcommittee"}>
               Meetings
             </Link>
@@ -60,6 +60,9 @@ const Navbar = () => {
               <Link className="dropdown-item" as={NavLink} to={"/recentnews"}>
                 Recent
               </Link>
+              <Link className="dropdown-item" as={NavLink} to={"/deadline-ads"}>
+                Deadlines & Ads
+              </Link>
               <Link className="dropdown-item" as={NavLink} to={"/newsarchive"}>
                 Archive
               </Link>
@@ -75,19 +78,54 @@ const Navbar = () => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Brentwood
+              About
             </div>
             <div
               className="dropdown-menu"
               aria-labelledby="navbarDropdownMenuLink"
             >
-              <Link className="dropdown-item" as={NavLink} to={"/recentnews"}>
+              <Link
+                className="dropdown-item"
+                as={NavLink}
+                to={"/ourneighborhood"}
+              >
                 Our Neighborhood
               </Link>
-              <Link className="dropdown-item" as={NavLink} to={"/newsarchive"}>
+              <Link className="dropdown-item" as={NavLink} to={"/history"}>
                 History
               </Link>
-              <div className="dropdown-item">Something else here</div>
+              <Link className="dropdown-item" as={NavLink} to={"/officers"}>
+                Officers
+              </Link>
+              <Link className="dropdown-item" as={NavLink} to={"/bylaws"}>
+                Bylaws
+              </Link>
+            </div>
+          </li>
+          <li className="nav-item dropdown">
+            <div
+              className="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Info
+            </div>
+            <div
+              className="dropdown-menu"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <Link className="dropdown-item" as={NavLink} to={"/codenext"}>
+                CodeNEXT
+              </Link>
+              <Link className="dropdown-item" as={NavLink} to={"/floodplain"}>
+                Floodplain
+              </Link>
+              <Link className="dropdown-item" as={NavLink} to={"/resources"}>
+                Resources
+              </Link>
             </div>
           </li>
         </ul>
@@ -95,6 +133,11 @@ const Navbar = () => {
           <li className="nav-item">
             <Link className="nav-link" as={NavLink} to={"/supportpage"}>
               Support BNA
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" as={NavLink} to={"/contactus"}>
+              Contact Us
             </Link>
           </li>
         </ul>
