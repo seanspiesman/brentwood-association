@@ -5,7 +5,6 @@ import { withRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import SupportPage from "./components/SupportContact/SupportPage";
 import SteeringCommittee from "./components/SteeringCommittee/SteeringCommittee";
-import NewsArchivePage from "./components/NewsLetter/NewsArchivePage";
 import NewsLetterPage from "./components/NewsLetter/NewsLetterPage";
 import SteeringArchive from "./components/SteeringCommittee/SteeringArchive";
 import DeadlinesAds from "./components/NewsLetter/DeadlinesAds";
@@ -21,7 +20,10 @@ import Resources from "./components/Info/Resources";
 class App extends Component {
   render() {
     return (
-      <div style={{ fontFamily: "Roboto, sans-serif !important" }}>
+      <div
+        className="page-background"
+        // style={{ fontFamily: "Roboto, sans-serif !important" }}
+      >
         <Navbar />
         <Route exact path="/" component={HomePage} />
         <Route
@@ -38,7 +40,6 @@ class App extends Component {
                 <Route path="/steeringarchive" component={SteeringArchive} />
                 <Route path="/recentnews" component={NewsLetterPage} />
                 <Route path="/deadline-ads" component={DeadlinesAds} />
-                <Route path="/newsarchive" component={NewsArchivePage} />
                 <Route path="/ourneighborhood" component={OurNeighborhood} />
                 <Route path="/officers" component={Officers} />
                 <Route path="/bylaws" component={Bylaws} />

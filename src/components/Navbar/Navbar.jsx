@@ -3,15 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-light"
-      style={{ backgroundColor: "#e3f2fd" }}
-    >
+    <nav className="navbar navbar-expand-lg navbar-dark font-weight-bold navbar-background">
       <div className="navbar-brand" href="#">
         <img
           src="assets/bna-logo.png"
           alt="bna-logo"
-          style={{ height: "50px" }}
+          style={{ height: "50px", borderRadius: "5px" }}
         />
       </div>
       <button
@@ -25,11 +22,7 @@ const Navbar = () => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div
-        className="collapse navbar-collapse"
-        id="navbarNavDropdown"
-        style={{ margin: "auto" }}
-      >
+      <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">
           <li className="nav-item active">
             <Link as={NavLink} to="/" className="nav-link" href="#">
@@ -63,10 +56,6 @@ const Navbar = () => {
               <Link className="dropdown-item" as={NavLink} to={"/deadline-ads"}>
                 Deadlines & Ads
               </Link>
-              <Link className="dropdown-item" as={NavLink} to={"/newsarchive"}>
-                Archive
-              </Link>
-              <div className="dropdown-item">Something else here</div>
             </div>
           </li>
           <li className="nav-item dropdown">
@@ -142,6 +131,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
+      <br />
     </nav>
   );
 };

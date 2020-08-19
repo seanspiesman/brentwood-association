@@ -3,15 +3,18 @@ import React from "react";
 const HomePage = () => {
   return (
     <div className="container">
-      <div className="text-center">
-        <img
-          className="center-block"
-          src="assets/bna_header.png"
-          alt="Brentwood header"
-          style={{ display: "inline-block", maxHeight: "100%", width: "auto" }}
-        />
-      </div>
       <br />
+      <img
+        className="center-block"
+        src="assets/bna_header.png"
+        alt="Brentwood header"
+        style={{
+          display: "inline-block",
+          maxHeight: "100%",
+          width: "100%",
+          overflow: "hidden",
+        }}
+      />
       <h3 className="text-center"> Welcome to the official BNA Website</h3>
       <br />
       <p className="text-center">
