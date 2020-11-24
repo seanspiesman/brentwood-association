@@ -1,0 +1,11 @@
+{
+  "time": {
+    "Location": "Location",
+    "New": "New things",
+    "Old": "Old Things",
+    "time": "time",
+    "ZoomId": "zoomID",
+    "Passcode": "passcode",
+    "Reports": "Reports"
+  }
+}

@@ -2,7 +2,7 @@ import React from "react";
 
 const History = () => {
   return (
-    <div className="container text-center">
+    <div className="container text-center elements">
       <h1 className="text-center">History</h1>
       <br />
       <h4> Brentwood Beginnings</h4>

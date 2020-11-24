@@ -2,7 +2,7 @@ import React from "react";
 
 const CodeNext = () => {
   return (
-    <div className="container text-center">
+    <div className="container text-center elements">
       <h1>CodeNEXT</h1>
       <p>
         CodeNEXT is the first major rewrite of Austin’s Land Development Code in
@@ -16,12 +16,21 @@ const CodeNext = () => {
       </p>
       <br />
       <br />
-      <embed
+      <object
+        title="codeNEXT"
         style={{ marginLeft: "auto", marginRight: "auto" }}
-        src="/assets/CodeNEXT/CodeNEXTV4Brentwood.pdf"
+        type="application/pdf"
+        data="/assets/CodeNEXT/CodeNEXTV4Brentwood.pdf"
         width="100%"
         height="1000px"
-      />
+      >
+        <p>
+          Your web browser doesn't have a PDF plugin. Instead you can{" "}
+          <a href="/assets/CodeNEXT/CodeNEXTV4Brentwood.pdf">
+            click here to download the PDF file.
+          </a>
+        </p>
+      </object>
     </div>
   );
 };

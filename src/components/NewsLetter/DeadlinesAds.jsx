@@ -2,7 +2,7 @@ import React from "react";
 
 const DeadlinesAds = () => {
   return (
-    <div className="container">
+    <div className="container elements">
       <div className="row">
         <div className="col col-md-6">
           <h1 className="text-center">Deadlines</h1>

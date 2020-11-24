@@ -30,12 +30,21 @@ const NewsLetterPage = () => {
           >
             <div className="card-body">
               <div style={{ width: "100%", paddingBottom: "30px" }}>
-                <embed
+                <object
+                  title="News Letter"
                   style={{ marginLeft: "auto", marginRight: "auto" }}
-                  src="/assets/NewsLetters/BNA2020-08.pdf"
+                  data="/assets/NewsLetters/BNA2020-08.pdf"
+                  type="application/pdf"
                   width="100%"
                   height="1000"
-                />
+                >
+                  <p>
+                    Your web browser doesn't have a PDF plugin. Instead you can{" "}
+                    <a href="/assets/NewsLetters/BNA2020-08.pdf">
+                      click here to download the PDF file.
+                    </a>
+                  </p>
+                </object>
               </div>
             </div>
           </div>
@@ -63,12 +72,21 @@ const NewsLetterPage = () => {
           >
             <div className="card-body">
               <div style={{ width: "100%", paddingBottom: "30px" }}>
-                <embed
+                <object
+                  title="News Letter"
                   style={{ marginLeft: "auto", marginRight: "auto" }}
-                  src="/assets/NewsLetters/BNA2020-06.pdf"
+                  type="application/pdf"
+                  data="/assets/NewsLetters/BNA2020-06.pdf"
                   width="100%"
                   height="1000"
-                />
+                >
+                  <p>
+                    Your web browser doesn't have a PDF plugin. Instead you can{" "}
+                    <a href="/assets/NewsLetters/BNA2020-06.pdf">
+                      click here to download the PDF file.
+                    </a>
+                  </p>
+                </object>
               </div>
             </div>
           </div>
@@ -96,12 +114,21 @@ const NewsLetterPage = () => {
           >
             <div className="card-body">
               <div style={{ width: "100%", paddingBottom: "30px" }}>
-                <embed
+                <object
+                  title="News Letter"
                   style={{ marginLeft: "auto", marginRight: "auto" }}
-                  src="/assets/NewsLetters/BNA2020-04.pdf"
+                  data="/assets/NewsLetters/BNA2020-04.pdf"
+                  type="application/pdf"
                   width="100%"
                   height="1000"
-                />
+                >
+                  <p>
+                    Your web browser doesn't have a PDF plugin. Instead you can{" "}
+                    <a href="/assets/NewsLetters/BNA2020-04.pdf">
+                      click here to download the PDF file.
+                    </a>
+                  </p>
+                </object>
               </div>
             </div>
           </div>
@@ -129,12 +156,21 @@ const NewsLetterPage = () => {
           >
             <div className="card-body">
               <div style={{ width: "100%", paddingBottom: "30px" }}>
-                <embed
+                <object
+                  title="News Letter"
                   style={{ marginLeft: "auto", marginRight: "auto" }}
-                  src="/assets/NewsLetters/BNA2020-01.pdf"
+                  data="/assets/NewsLetters/BNA2020-01.pdf"
+                  type="application/pdf"
                   width="100%"
                   height="1000"
-                />
+                >
+                  <p>
+                    Your web browser doesn't have a PDF plugin. Instead you can{" "}
+                    <a href="/assets/NewsLetters/BNA2020-01.pdf">
+                      click here to download the PDF file.
+                    </a>
+                  </p>
+                </object>
               </div>
             </div>
           </div>
@@ -162,12 +198,21 @@ const NewsLetterPage = () => {
           >
             <div className="card-body">
               <div style={{ width: "100%", paddingBottom: "30px" }}>
-                <embed
+                <object
+                  title="News Letter"
                   style={{ marginLeft: "auto", marginRight: "auto" }}
-                  src="/assets/NewsLetters/BNA2019-11.pdf"
+                  data="/assets/NewsLetters/BNA2019-11.pdf"
+                  type="application/pdf"
                   width="100%"
                   height="1000"
-                />
+                >
+                  <p>
+                    Your web browser doesn't have a PDF plugin. Instead you can{" "}
+                    <a href="/assets/NewsLetters/BNA2019-11.pdf">
+                      click here to download the PDF file.
+                    </a>
+                  </p>
+                </object>
               </div>
             </div>
           </div>

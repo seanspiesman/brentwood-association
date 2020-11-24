@@ -2,7 +2,7 @@ import React from "react";
 
 const Floodplain = () => {
   return (
-    <div className="container">
+    <div className="container elements">
       <br />
       <h1>Floodplain</h1>
       <p>
@@ -30,9 +30,7 @@ const Floodplain = () => {
         neighbors in Allandale, Brentwood, Crestview, Rosedale, and Wooten to
         hear the proposed changes from the Watershed Department. Click{" "}
         <b>
-          <a href="http://austintexas.gov/sites/default/files/files/Watershed/flood/atlas14_presentation_9_12_18.pdf">
-            here
-          </a>
+          <a href="/assets/Other/atlas14_presentation_9_12_18.pdf">here</a>
         </b>{" "}
         to view the Watershed Protection Department’s presentation on Atlas 14.
         <br />

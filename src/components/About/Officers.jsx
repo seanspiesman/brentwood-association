@@ -2,8 +2,8 @@ import React from "react";
 
 const Officers = () => {
   return (
-    <div className="container">
-      <h1 className="text-center">Officers</h1>
+    <div className="container elements">
+      <h1 className="">Officers</h1>
       <br />
       <div className="row">
         <div className="col col-md-4">

@@ -1,12 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import "./navbar.css";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark font-weight-bold navbar-background">
       <div className="navbar-brand" href="#">
         <img
-          src="assets/bna-logo.png"
+          src="/assets/bna-logo.png"
           alt="bna-logo"
           style={{ height: "50px", borderRadius: "5px" }}
         />
@@ -24,16 +25,45 @@ const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">
-          <li className="nav-item active">
+          <li className="nav-item">
             <Link as={NavLink} to="/" className="nav-link" href="#">
               Home <span className="sr-only">(current)</span>
             </Link>
           </li>
-
-          <li className="nav-item">
-            <Link className="nav-link" as={NavLink} to={"/steeringcommittee"}>
+          <li className="nav-item dropdown">
+            <div
+              className="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
               Meetings
-            </Link>
+            </div>
+            <div
+              className="dropdown-menu fade-down"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <Link
+                className="dropdown-item"
+                as={NavLink}
+                to={"/steeringcommittee"}
+              >
+                Recent
+              </Link>
+              <Link className="dropdown-item" as={NavLink} to={"/calendar"}>
+                Calendar
+              </Link>
+              <Link
+                className="dropdown-item"
+                as={NavLink}
+                to={"/steeringarchive"}
+              >
+                Archive
+              </Link>
+            </div>
           </li>
           <li className="nav-item dropdown">
             <div
@@ -44,10 +74,10 @@ const Navbar = () => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              News Letter
+              Newsletter
             </div>
             <div
-              className="dropdown-menu"
+              className="dropdown-menu fade-down"
               aria-labelledby="navbarDropdownMenuLink"
             >
               <Link className="dropdown-item" as={NavLink} to={"/recentnews"}>
@@ -70,7 +100,7 @@ const Navbar = () => {
               About
             </div>
             <div
-              className="dropdown-menu"
+              className="dropdown-menu fade-down"
               aria-labelledby="navbarDropdownMenuLink"
             >
               <Link
@@ -103,7 +133,7 @@ const Navbar = () => {
               Info
             </div>
             <div
-              className="dropdown-menu"
+              className="dropdown-menu fade-down"
               aria-labelledby="navbarDropdownMenuLink"
             >
               <Link className="dropdown-item" as={NavLink} to={"/codenext"}>
@@ -120,8 +150,8 @@ const Navbar = () => {
         </ul>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <Link className="nav-link" as={NavLink} to={"/supportpage"}>
-              Support BNA
+            <Link className="nav-link" as={NavLink} to={"/joinpage"}>
+              Join BNA
             </Link>
           </li>
           <li className="nav-item">

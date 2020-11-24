@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const OurNeighborhood = () => {
   return (
-    <div className="container">
+    <div className="container elements">
       <h1 className="text-center"> Our Neighborhood</h1>
       <p>
         The Brentwood Neighborhood Association serves North Central Austin,
@@ -47,11 +46,11 @@ const OurNeighborhood = () => {
         <li>Texas School for the Blind and Visually Impaired</li>
         <li>Recording for the Blind</li>
       </ul>
-      <br />
+      {/* <br />
       <br />
       The following churches are in (or near) our neighborhood:
-      <br />
-      <ul>
+      <br /> */}
+      {/* <ul>
         <li>Austin Bible Church 7500 Woodrow Ave. 78757 454-7493</li>
         <li>
           Crestview United Methodist Church 1300 Morrow St. 78757 451-1741
@@ -67,7 +66,7 @@ const OurNeighborhood = () => {
         <li>Koenig Lane Christian Church 908 Old Koenig Ln. 78756 454-7679</li>
         <li>Northwest Baptist 6301 Woodrow Ave 78757 454-6815</li>
         <li>Church of the Resurrection 2200 Justin Lane 78757 459-0027</li>
-      </ul>
+      </ul> */}
       <br />
     </div>
   );
