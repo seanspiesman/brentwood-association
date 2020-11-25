@@ -13,6 +13,7 @@ export function dataFromSnapshot(snapshot) {
   }
   return {
     ...data,
+    id: snapshot.id,
   };
 }
 
