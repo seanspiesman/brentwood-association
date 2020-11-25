@@ -13,9 +13,10 @@ export function dataFromSnapshot(snapshot) {
   }
   return {
     ...data,
-    id: snapshot.id,
   };
 }
+
+// ===========================HOMEPAGE===========================
 
 export function listenToHomepageFromFirestore() {
   return db.collection("HomePage");
@@ -28,6 +29,8 @@ export function updateHomepageInFirestore(post) {
     .update({ ...post, edit: false });
 }
 
+//================================STEERING COMMITTEE====================
+
 export function listenToMeetingsFromFirestore() {
   return db.collection("Meetings");
 }
@@ -38,4 +41,11 @@ export function listenToMeetingFromFirestore(meetingId) {
 
 export function updateMeetingInFirestore(meeting) {
   return db.collection("Meetings").doc(meeting.id).update(meeting);
+}
+
+export function addMeetingToFirestore(meeting) {
+  console.log(meeting);
+  return db.collection("Meetings").add({
+    ...meeting,
+  });
 }

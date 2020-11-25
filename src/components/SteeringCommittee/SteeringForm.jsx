@@ -3,56 +3,87 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { listenToMeetingFromFirestore } from "../../common/firestore/firestoreService";
+import {
+  addMeetingToFirestore,
+  listenToMeetingFromFirestore,
+  updateMeetingInFirestore,
+} from "../../common/firestore/firestoreService";
 import useFirestoreDoc from "../../common/firestore/useFirestoreDoc";
 import { listenToSteering } from "./redux/SteeringActions";
+import firebase from "../../common/config/firebase";
 
-const SteeringForm = ({ match }) => {
-  const [startDate, setStartDate] = useState(new Date());
+const SteeringForm = ({ history, match }) => {
+  const [startDate, setStartDate] = useState();
   const dispatch = useDispatch();
+
   useFirestoreDoc({
     query: () => listenToMeetingFromFirestore(match.params.id),
     data: (meeting) => dispatch(listenToSteering([meeting])),
     deps: [match.params.id],
   });
-  const meeting = useSelector((state) => state.steering.steering);
 
-  if (!meeting) {
-    return null;
+  let meeting = useSelector((state) => state.steering.steering);
+
+  if (match.path === "/newmeeting") {
+    meeting = [
+      {
+        title: "",
+        New: "",
+        Old: "",
+        Passcode: "",
+        Reports: "",
+        ZoomID: "",
+      },
+    ];
   }
 
-  console.log(meeting[0]);
-
-  let initialValues = meeting[0] ?? {
-    title: "",
-    date: new Date(),
-    Reports: [],
-    New: [],
-    Old: [],
-    Passcode: "",
-    ZoomID: "",
-  };
-
+  const updatedMeeting = {};
   const meetingId = createRef();
   const passcode = createRef();
   const oldB = createRef();
   const newB = createRef();
   const reportsRef = createRef();
-
-  console.log(initialValues);
+  const titleRef = createRef();
 
   const updateForm = (e) => {
+    setStartDate(meeting[0].date || Date.now());
     e.preventDefault();
-    console.log(meetingId.current.value);
+    updatedMeeting.date = firebase.firestore.Timestamp.fromDate(
+      startDate || meeting[0].date
+    );
+    updatedMeeting.title = titleRef.current.value;
+    updatedMeeting.ZoomID = meetingId.current.value;
+    updatedMeeting.Passcode = passcode.current.value;
+    updatedMeeting.Old = oldB.current.value.split(", ");
+    updatedMeeting.New = newB.current.value.split(", ");
+    updatedMeeting.Reports = reportsRef.current.value.split(", ");
+
+    if (match.path === "/newmeeting") {
+      addMeetingToFirestore(updatedMeeting);
+    } else {
+      updatedMeeting.id = meeting[0].id;
+      updateMeetingInFirestore(updatedMeeting);
+    }
+    history.push("/steeringcommittee");
   };
 
-  const oldItems = meeting[0].Old.join(", ");
-  const newItems = meeting[0].New.join(", ");
-  const reports = meeting[0].Reports.join(", ");
+  let oldItems;
+  let newItems;
+  let reports;
+  if (meeting && meeting[0] && meeting[0].Old.length > 0) {
+    oldItems = meeting[0].Old.join(", ");
+    newItems = meeting[0].New.join(", ");
+    reports = meeting[0].Reports.join(", ");
+  }
+
+  if (!meeting) {
+    return null;
+  }
+
   return (
-    <div className="container">
+    <div key={meeting[0] ? meeting[0].id : null} className="container">
       <div className="elements">
-        <h1>Form</h1>
+        <h1>{meeting[0] ? "Update Meeting" : "Create Meeting"}</h1>
         <hr className="solid"></hr>
         <div></div>
         <form
@@ -61,13 +92,21 @@ const SteeringForm = ({ match }) => {
           }}
         >
           <div className="form-group">
+            <label>Title</label>
+            <input
+              ref={titleRef}
+              className="form-control"
+              placeholder="Enter Meeting Title..."
+              defaultValue={meeting && meeting[0] ? meeting[0].title : ""}
+            />
+          </div>
+          <div className="form-group">
             <label>Zoom Meeting ID</label>
             <input
               ref={meetingId}
               className="form-control"
-              initialvalues="test"
               placeholder="Enter Meeting ID"
-              defaultValue={"" || meeting[0].ZoomID}
+              defaultValue={meeting && meeting[0] ? meeting[0].ZoomID : ""}
             />
             <small className="form-text text-muted">
               Please provide in the form of: 865 1894 9532
@@ -76,17 +115,19 @@ const SteeringForm = ({ match }) => {
           <div className="form-group">
             <label>Passcode</label>
             <input
+              ref={passcode}
               className="form-control"
               placeholder="Passcode here..."
-              defaultValue={"" || meeting[0].Passcode}
+              defaultValue={meeting && meeting[0] ? meeting[0].Passcode : ""}
             />
           </div>
           <div className="form-group">
             <label>Old Business</label>
             <input
+              ref={oldB}
               className="form-control"
               placeholder="Old Business here..."
-              defaultValue={"" || oldItems}
+              defaultValue={meeting && meeting[0] && oldItems}
             />
             <small className="form-text text-muted">
               Please separate items with a comma
@@ -95,9 +136,10 @@ const SteeringForm = ({ match }) => {
           <div className="form-group">
             <label>New Business</label>
             <input
+              ref={newB}
               className="form-control"
               placeholder="New Business here..."
-              defaultValue={"" || newItems}
+              defaultValue={meeting && meeting[0] && newItems}
             />{" "}
             <small className="form-text text-muted">
               Please separate items with a comma
@@ -106,9 +148,10 @@ const SteeringForm = ({ match }) => {
           <div className="form-group">
             <label>Committee Reports</label>
             <input
+              ref={reportsRef}
               className="form-control"
               placeholder="Reports Here..."
-              defaultValue={"" || reports}
+              defaultValue={meeting && meeting[0] && reports}
             />
             <small className="form-text text-muted">
               Please separate items with a comma
@@ -117,21 +160,23 @@ const SteeringForm = ({ match }) => {
           <div className="form-group">
             <label>Date</label>
             <br />
-            <DatePicker
-              dateFormat="MM/dd/yyyy h:mm aa"
-              showTimeSelect
-              selected={meeting[0].date}
-              onChange={(date) => setStartDate(date)}
-            />
+            {meeting && meeting[0] ? (
+              <DatePicker
+                dateFormat="MM/dd/yyyy h:mm aa"
+                showTimeSelect
+                selected={startDate || meeting[0].date}
+                onChange={(date) => setStartDate(date)}
+              />
+            ) : (
+              <DatePicker
+                dateFormat="MM/dd/yyyy h:mm aa"
+                showTimeSelect
+                selected={startDate || Date.now()}
+                onChange={(date) => setStartDate(date)}
+              />
+            )}
           </div>
-          <button
-            // onClick={() => {}}
-            // to="/steeringcommittee"
-            // type="submit"
-            className="btn btn-primary"
-          >
-            Submit
-          </button>{" "}
+          <button className="btn btn-primary">Submit</button>
           <Link
             to="/steeringcommittee"
             type="submit"

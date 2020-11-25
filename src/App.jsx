@@ -39,6 +39,7 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
             <Route path="/steeringcommittee" component={SteeringCommittee} />
             <Route exact path="/meeting/:id" component={SteeringForm} />
+            <Route exact path="/newmeeting" component={SteeringForm} />
             <Route path="/history" component={History} />
             <Route path="/steeringarchive" component={SteeringArchive} />
             <Route path="/recentnews" component={NewsLetterPage} />

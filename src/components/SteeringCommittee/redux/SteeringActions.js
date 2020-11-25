@@ -1,12 +1,15 @@
-import { CHANGE_STEERING_EDIT, FETCH_STEERING } from "./SteeringConstants";
+import { FETCH_MEETING, FETCH_MEETINGS } from "./SteeringConstants";
 
 export function listenToSteering(posts) {
   return {
-    type: FETCH_STEERING,
+    type: FETCH_MEETINGS,
     payload: posts,
   };
 }
 
-export function changeEdit(postId) {
-  return { type: CHANGE_STEERING_EDIT, payload: postId };
+export function listenToMeeting(posts) {
+  return {
+    type: FETCH_MEETING,
+    payload: posts,
+  };
 }

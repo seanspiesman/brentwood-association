@@ -13,7 +13,7 @@ const SteeringCommittee = () => {
 
   useFirestoreCollection({
     query: () => listenToMeetingsFromFirestore(),
-    data: (detail) => dispatch(listenToSteering(detail)),
+    data: (meets) => dispatch(listenToSteering(meets)),
     deps: [dispatch],
   });
   if (meetings) {
@@ -52,20 +52,26 @@ const SteeringCommittee = () => {
               post link to a PDF minutes here.
             </p>
           </div>
-
-          <div
-            className="elements"
-            style={{
-              marginTop: "5px",
-              paddingTop: "10px",
-              paddingBottom: "50px",
-            }}
-          >
-            {meetings &&
-              meetings.map((meeting, index) => {
-                // console.log(meeting);
-                return (
-                  <div key={index}>
+          <div className="elements text-center">
+            <Link to="/newmeeting" className="btn btn-primary">
+              Create New Meeting
+            </Link>
+          </div>
+          {meetings &&
+            meetings[0] &&
+            meetings.map((meeting, index) => {
+              // console.log(meeting);
+              return (
+                <div
+                  key={index}
+                  className="elements"
+                  style={{
+                    marginTop: "5px",
+                    paddingTop: "10px",
+                    paddingBottom: "50px",
+                  }}
+                >
+                  <div>
                     <h3>{meeting.title}</h3>
                     <p>{format(meeting.date, "PPPpp")}</p>
                     <h6>
@@ -108,9 +114,9 @@ const SteeringCommittee = () => {
                       Edit
                     </Link>
                   </div>
-                );
-              })}
-          </div>
+                </div>
+              );
+            })}
         </div>
         <ContactUsSidebar />
       </div>

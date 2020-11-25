@@ -1,7 +1,8 @@
 import {
   CHANGE_STEERING_EDIT,
   EDIT_STEERING,
-  FETCH_STEERING,
+  FETCH_MEETING,
+  FETCH_MEETINGS,
 } from "./SteeringConstants";
 
 const initialState = {};
@@ -27,9 +28,13 @@ export default function steeringReducer(
           payload,
         ],
       };
-    case FETCH_STEERING:
+    case FETCH_MEETINGS:
       return {
         ...state,
+        steering: payload,
+      };
+    case FETCH_MEETING:
+      return {
         steering: payload,
       };
     default:
