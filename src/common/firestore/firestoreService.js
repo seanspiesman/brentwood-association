@@ -4,6 +4,7 @@ const db = firebase.firestore();
 export function dataFromSnapshot(snapshot) {
   if (!snapshot.exists) return undefined;
   const data = snapshot.data();
+
   for (const prop in data) {
     if (data.hasOwnProperty(prop)) {
       if (data[prop] instanceof firebase.firestore.Timestamp) {
@@ -33,7 +34,7 @@ export function updateHomepageInFirestore(post) {
 //================================STEERING COMMITTEE====================
 
 export function listenToMeetingsFromFirestore() {
-  return db.collection("Meetings");
+  return db.collection("Meetings").orderBy("date");
 }
 
 export function listenToMeetingFromFirestore(meetingId) {
@@ -45,8 +46,20 @@ export function updateMeetingInFirestore(meeting) {
 }
 
 export function addMeetingToFirestore(meeting) {
-  console.log(meeting);
   return db.collection("Meetings").add({
     ...meeting,
   });
+}
+
+//========================================NEWSLETTER==================================
+
+export function listenToNewsletterFromFirestore() {
+  return db.collection("Newsletter");
+}
+
+export function updateNewsletterInFirestore(page) {
+  return db
+    .collection("Newsletter")
+    .doc(page.id)
+    .update({ ...page, edit: false });
 }

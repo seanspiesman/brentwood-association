@@ -19,6 +19,7 @@ import Resources from "./components/Info/Resources";
 import BNACalendar from "./components/NewsLetter/BNACalendar";
 import { AnimatedSwitch } from "react-router-transition";
 import SteeringForm from "./components/SteeringCommittee/SteeringForm";
+import LoginPage from "./components/LoginPage";
 
 class App extends Component {
   render() {
@@ -53,6 +54,7 @@ class App extends Component {
             <Route path="/resources" component={Resources} />
             <Route path="/joinpage" component={JoinPage} />
             <Route path="/contactus" component={ContactUs} />
+            <Route exact path="/login" component={LoginPage} />
             {/* </AnimatedSwitch> */}
 
             {/* <Route component={"NotFound"} /> */}

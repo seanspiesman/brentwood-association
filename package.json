@@ -17,6 +17,7 @@
     "react-router-transition": "^2.0.0",
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "serve": "^11.3.2"
   },
   "scripts": {

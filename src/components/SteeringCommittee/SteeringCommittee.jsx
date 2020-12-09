@@ -10,15 +10,27 @@ import { listenToSteering } from "./redux/SteeringActions";
 const SteeringCommittee = () => {
   const dispatch = useDispatch();
   const meetings = useSelector((state) => state.steering.steering);
+  const auth = useSelector((state) => state.auth);
+
+  if (meetings) meetings.reverse();
 
   useFirestoreCollection({
     query: () => listenToMeetingsFromFirestore(),
     data: (meets) => dispatch(listenToSteering(meets)),
     deps: [dispatch],
   });
-  if (meetings) {
-    // console.log(meetings);
+
+  let admin = false;
+  if (auth.currentUser && auth.currentUser.email) {
+    if (
+      auth.currentUser.email === "mcabarney@gmail.com" ||
+      auth.currentUser.email === "sean.spies@gmail.com" ||
+      auth.currentUser.email === "brentwood.austin@gmail.com"
+    ) {
+      admin = true;
+    }
   }
+
   return (
     <div className="container">
       <br />
@@ -39,6 +51,11 @@ const SteeringCommittee = () => {
               </a>
               .
               <br />
+              <b>
+                Note: during the pandemic, we will hold all of our meetings on
+                Zoom.
+              </b>
+              <br />
               <br />
               Our annual General Membership meeting is held in February at which
               time we elect new Officers and SC Members and review our
@@ -51,16 +68,17 @@ const SteeringCommittee = () => {
               have been approved (typically one month after the event), we will
               post link to a PDF minutes here.
             </p>
-          </div>
-          <div className="elements text-center">
-            <Link to="/newmeeting" className="btn btn-primary">
-              Create New Meeting
-            </Link>
+            <div className="text-center">
+              {admin && (
+                <Link to="/newmeeting" className="btn btn-primary">
+                  Create New Meeting
+                </Link>
+              )}
+            </div>
           </div>
           {meetings &&
             meetings[0] &&
             meetings.map((meeting, index) => {
-              // console.log(meeting);
               return (
                 <div
                   key={index}
@@ -107,12 +125,14 @@ const SteeringCommittee = () => {
                       </li>
                       <li>Adjournment</li>
                     </ol>
-                    <Link
-                      className="btn btn-success float-right"
-                      to={`/meeting/${meeting.id}`}
-                    >
-                      Edit
-                    </Link>
+                    {admin && (
+                      <Link
+                        className="btn btn-success float-right"
+                        to={`/meeting/${meeting.id}`}
+                      >
+                        Edit
+                      </Link>
+                    )}
                   </div>
                 </div>
               );

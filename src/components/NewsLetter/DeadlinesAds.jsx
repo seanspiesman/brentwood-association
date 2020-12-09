@@ -1,76 +1,56 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listenToNewsletterFromFirestore } from "../../common/firestore/firestoreService";
+import useFirestoreCollection from "../../common/firestore/useFirestoreCollection";
+import { listenToNewsletter } from "./redux/NewsActions";
 
 const DeadlinesAds = () => {
-  return (
-    <div className="container elements">
-      <div className="row">
-        <div className="col col-md-6">
-          <h1 className="text-center">Deadlines</h1>
-          <p>
-            If you are wanting to submit an article for publication, please
-            submit it to our newsletter editor at:{" "}
-            <a href="mailto:brentwood.newsletter@gmail.com">
-              brentwood.newsletter@gmail.com
-            </a>
-            . Articles submitted should be of specific or general interest to
-            Brentwood residents; no commercial submissions, please.
-          </p>
-          <br />
-          Schedule for Article & Ad Graphic Submissions:
-          <ul>
-            <li>
-              At least seven (7) days prior to end of January, March, May, July,
-              September & November.
-            </li>
-            <li>
-              Newsletters will be posted in early February, April, June, August,
-              October & December.
-            </li>
-          </ul>
-        </div>
-        <div className="col col-md-6">
-          <h1 className="text-center">Ads</h1>
-          <p>
-            BNA runs advertisements by local businesses to fund projects for the
-            neighborhood such at the Arroyo Hike & Bike Trail installation and
-            maintenance. ALL ADS must be PREPAID, prior to issuance of the
-            newsletter. Our current ad rates are:
-          </p>
-          <ul>
-            <li>
-              <b>$50.00 per eighth </b> page/business card (3.75"w x 2.5"h);
-            </li>
+  const dispatch = useDispatch();
 
-            <li>
-              <b>$100.00 per quarter page</b> (3.75"w x 5"h); (no half or full
-              page ads will be sold due to demand for space);
-            </li>
-            <li>
-              <b>NOTE:</b> Ad rates are projected to decrease in cost in 2021
-              due to reduced costs of production and increased frequency.
-            </li>
-          </ul>
-          <h4>STEPS TO ADVERTISE</h4>
-          <ul>
-            <li>
-              Contact us at brentwood.adsales@gmail.com to confirm space is
-              available. We encourage advertisers to pay for one (1) full year
-              in advance for ease of accounting.
-            </li>
-            <li>
-              Please make checks payable to Brentwood Neighborhood Association.
-              Mail the check to BNA, 1417 Palo Duro Rd., Austin, TX 78757.
-            </li>
-            <li>
-              Send the digital file to brentwood.adsales@gmail.com prior to
-              deadline shown above in the Schedule for Article & Ad Graphic
-              Submissions.
-            </li>
-          </ul>
+  const deadlinesads = useSelector((state) => state.newsletter.newsletter);
+  // console.log(deadlinesads);
+
+  useFirestoreCollection({
+    query: () => listenToNewsletterFromFirestore(),
+    data: (newsletter) => dispatch(listenToNewsletter(newsletter)),
+    deps: [dispatch],
+  });
+  if (deadlinesads) {
+    return (
+      <div className="container elements">
+        <div className="row">
+          <div className="col col-md-6">
+            <h1 className="text-center">Deadlines</h1>
+            <pre>{deadlinesads[0].Deadlines}</pre>
+            <br />
+            Schedule for Article & Ad Graphic Submissions:
+            <ul>
+              <li>{deadlinesads[0].Submission[0]}</li>
+              <li>{deadlinesads[0].Submission[1]}</li>
+            </ul>
+          </div>
+          <div className="col col-md-6">
+            <h1 className="text-center">Ads</h1>
+            <p>{deadlinesads[0].Ads[0]}</p>
+            <ul>
+              <li>{deadlinesads[0].Ads[1]}</li>
+              <li>{deadlinesads[0].Ads[2]}</li>
+              <li>{deadlinesads[0].Ads[3]}y.</li>
+            </ul>
+            <h4>STEPS TO ADVERTISE</h4>
+            <ul>
+              <li>{deadlinesads[0].Steps[0]}</li>
+              <li>{deadlinesads[0].Steps[1]}</li>
+              <li>{deadlinesads[0].Steps[2]}</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return null;
+  }
 };
 
 export default DeadlinesAds;
+ 

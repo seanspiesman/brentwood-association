@@ -12,7 +12,7 @@ import { changeEdit, listenToHomepage } from "./redux/hpActions";
 const HomePage = () => {
   const dispatch = useDispatch();
   const homepage = useSelector((state) => state.homepage.homepage);
-
+  const auth = useSelector((state) => state.auth);
   const input = createRef();
 
   useFirestoreCollection({
@@ -21,11 +21,17 @@ const HomePage = () => {
     deps: [dispatch],
   });
 
-  let auth;
-  if (homepage) {
-    auth = true;
-    // console.log(homepage[0]);
+  let admin = false;
+  if (auth.currentUser && auth.currentUser.email) {
+    if (
+      auth.currentUser.email === "mcabarney@gmail.com" ||
+      auth.currentUser.email === "sean.spies@gmail.com" ||
+      auth.currentUser.email === "brentwood.austin@gmail.com"
+    ) {
+      admin = true;
+    }
   }
+
   return (
     <>
       {homepage && (
@@ -56,13 +62,14 @@ const HomePage = () => {
                 <>
                   <pre className="text-center">{homepage[0].description}</pre>
                   <p className="posted-by">POSTED BY DON LEIGHTON-BURWELL</p>
-
-                  <button
-                    className="btn btn-success float-right"
-                    onClick={() => dispatch(changeEdit(homepage[0].id))}
-                  >
-                    Edit
-                  </button>
+                  {admin && (
+                    <button
+                      className="btn btn-success float-right"
+                      onClick={() => dispatch(changeEdit(homepage[0].id))}
+                    >
+                      Edit
+                    </button>
+                  )}
                 </>
               )}
               {homepage[0].edit && (
