@@ -17,7 +17,6 @@ import CodeNext from "./components/Info/CodeNext";
 import Floodplain from "./components/Info/Floodplain";
 import Resources from "./components/Info/Resources";
 import BNACalendar from "./components/NewsLetter/BNACalendar";
-import { AnimatedSwitch } from "react-router-transition";
 import SteeringForm from "./components/SteeringCommittee/SteeringForm";
 import LoginPage from "./components/LoginPage";
 

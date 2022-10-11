@@ -1,10 +1,24 @@
 import React from "react";
+import isAuth, {verifyAuth} from "../../common/auth/authActions";
+
+/* fake auth */
+let admin = isAuth();
 
 const NewsLetterPage = () => {
   return (
     <div className="container">
-      <h1 className="text-center">News Letters</h1>
-
+      <h1 className="text-center">Newsletters</h1>
+      {admin && ( 
+        <>
+          <div className="container-fluid">
+            <div className="mb-3">
+              <label for="formFile" class="form-label">Upload New Newsletter</label>
+              <input class="form-control" type="file" id="formFile" />
+            </div>
+          </div>
+        </>
+      )}
+    
       <div className="accordion" id="news-letter-accordion">
         <div className="card">
           <div className="card-header" id="headingOne">

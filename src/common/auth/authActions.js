@@ -18,6 +18,7 @@ export function verifyAuth() {
       }
     });
   };
+
 }
 
 export function signOutUser() {
@@ -25,4 +26,8 @@ export function signOutUser() {
   return {
     type: SIGN_OUT_USER,
   };
+}
+
+export default function isAuth() {
+  return (firebase.auth().currentUser === "nicklswx@gmail.com" ? false : true)
 }
