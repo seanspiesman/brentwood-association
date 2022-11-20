@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -26,7 +26,8 @@ const HomePage = () => {
     if (
       auth.currentUser.email === "mcabarney@gmail.com" ||
       auth.currentUser.email === "sean.spies@gmail.com" ||
-      auth.currentUser.email === "brentwood.austin@gmail.com"
+      auth.currentUser.email === "brentwood.austin@gmail.com" ||
+      auth.currentUser.email === "nicklswx@gmail.com"
     ) {
       admin = true;
     }
